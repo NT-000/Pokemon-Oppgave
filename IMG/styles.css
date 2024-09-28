@@ -1,0 +1,85 @@
+/* General styling for the app */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the app */
+#app {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gridbox for arranging content */
+.gridbox {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Wild Pokemon container */
+.wildPokemon {
+    background-color: #e6f7ff;
+    border: 2px solid #0073e6;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Player box styling */
+.playerBox {
+    background-color: #dff0d8;
+    border: 2px solid #3c763d;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Pokemon images */
+.wildPokemon img,
+.playerBox img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+}
+
+/* Buttons container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Buttons styling */
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Pokebag content */
+.pokeBag {
+    margin-top: 20px;
+    background-color: #fffbe7;
+    border: 2px solid #ffa500;
+    border-radius: 10px;
+    padding: 15px;
+}
