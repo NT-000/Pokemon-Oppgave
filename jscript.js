@@ -1,8 +1,7 @@
-
-// let possiblePokemon = ['pikachu','bulbasaur','mew','magikarp']
 let randomPokemon = '';
 let app = document.getElementById('app');
-
+isOpen = false;
+let randomNumber = '';
 
 
 trainer = {
@@ -18,14 +17,14 @@ let pokemon = [
         name: 'Pikachu',
         health: 50,
         level: 25,
-        image: 'IMG/pikachu.png',
+        image: 'IMG/pikachu2.jpeg',
     },
 
     {
         name: 'Bulbasaur',
         health: 20,
         level: 10,
-        image: 'IMG/bulbasaur.png',
+        image: 'IMG/bulbasaur2.jpg',
     },
     {
         name: 'Mew',
@@ -37,7 +36,7 @@ let pokemon = [
         name: 'Magikarp',
         health: 5,
         level: 1,
-        image: 'IMG/magikarp.png',
+        image: 'IMG/magikarp2.png',
     }
     
 ]
@@ -76,7 +75,7 @@ function caughtPokemonView(){
     <div class="gridbox">
     <div class="wildPokemon">
         <img src="IMG/pokeball.png">
-        <h1>You caught ${randomPokemon.name}<h1>
+        <h1>You caught ${randomPokemon.name}</h1>
     </div>
     
     <div class="playerBox">
@@ -85,8 +84,8 @@ function caughtPokemonView(){
     </div>
     
         <div class="buttons">
-        <button onclick="updateView()">Escape</button>
-        <div class="pokeBag">${trainer.playerPokemon}</div>
+        <button onclick="updateView()">Back to the wild</button>
+
         <button onclick="showPokemon()">Open Pokebag</button>
         
         
@@ -97,16 +96,55 @@ function caughtPokemonView(){
 
 function catchPokemon(){
 trainer.playerPokemon.push(randomPokemon);
-caughtPokemonView();
-
-}
-
-// function showPokemon(){
+pokemon.splice(randomNumber,1);
+// for(let i=0;i>pokemon.length;i++){
 // }
 
-function getRandomPokemon(){
-    let randomNumber = Math.floor(Math.random()* pokemon.length);
-    randomPokemon = pokemon[randomNumber];
-    
+caughtPokemonView();
+}
 
+ function showPokemon(){
+    if(isOpen) {
+        updateView();
+    }
+
+    else{
+    let html='';
+    for (let i = 0; i < trainer.playerPokemon.length; i++) {
+    html += `
+    <div class="pokeBag">
+    <ul>
+    <img src="${trainer.playerPokemon[i].image}">
+    <br>
+    <div>Name: ${trainer.playerPokemon[i].name}</div>
+    <br>
+    <div>Health: ${trainer.playerPokemon[i].health}</div>
+    <br>
+    <div>Level: ${trainer.playerPokemon[i].level}</div>
+    </ul>
+    <button onclick="deleteBtn(${i})">X</button>
+    </div>`
+    console.log('vis pokemon');
+    }
+    app.innerHTML = /*HTML*/`
+        <div class="gridbox">
+            ${html}
+            <div class="buttons">
+                <button onclick="updateView()">Back to Wild</button>
+            </div>
+        </div>
+        `;}
+        isOpen = !isOpen;
+    }
+function deleteBtn(i){
+pokemon.push(trainer.playerPokemon[i]);
+trainer.playerPokemon.splice(i,1)
+
+showPokemon();
+}
+
+function getRandomPokemon(){
+    randomNumber = Math.floor(Math.random()* pokemon.length);
+    randomPokemon = pokemon[randomNumber];
+    console.log(randomNumber);
 }

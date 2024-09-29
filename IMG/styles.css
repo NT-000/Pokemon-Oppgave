@@ -1,85 +1,109 @@
-/* General styling for the app */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+/* Styles for the entire app container */
+#app {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
+    background-color: #f3f3f3;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Container for the app */
-#app {
-    background-color: #ffffff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 800px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Gridbox for arranging content */
+/* Grid layout container */
 .gridbox {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    text-align: center;
-}
-
-/* Wild Pokemon container */
-.wildPokemon {
-    background-color: #e6f7ff;
-    border: 2px solid #0073e6;
+    padding: 20px;
+    background: #fff;
     border-radius: 10px;
-    padding: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Player box styling */
-.playerBox {
-    background-color: #dff0d8;
-    border: 2px solid #3c763d;
+/* Wild Pokémon section */
+.wildPokemon, .playerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f0f8ff;
+    padding: 20px;
     border-radius: 10px;
-    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-/* Pokemon images */
-.wildPokemon img,
-.playerBox img {
-    width: 100px;
-    height: auto;
-    margin: 10px;
+/* Wild Pokémon section hover effect */
+.wildPokemon:hover, .playerBox:hover {
+    transform: scale(1.05);
 }
 
-/* Buttons container */
+/* Player and Pokémon images */
+.wildPokemon img, .playerBox img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Button styles */
 .buttons {
+    grid-column: span 2;
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
-/* Buttons styling */
-.buttons button {
+button {
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
+    background-color: #ffcb05;
+    color: #2a75bb;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.buttons button:hover {
-    background-color: #0056b3;
+/* Button hover effect */
+button:hover {
+    background-color: #2a75bb;
+    color: #ffcb05;
+    transform: scale(1.1);
 }
 
-/* Pokebag content */
+/* Pokémon bag section */
 .pokeBag {
-    margin-top: 20px;
-    background-color: #fffbe7;
-    border: 2px solid #ffa500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #e0f7fa;
+    padding: 20px;
     border-radius: 10px;
-    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.pokeBag img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Pokémon list inside Pokebag */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Back to wild button in Pokebag */
+.pokeBag .buttons {
+    margin-top: 20px;
+}
+
+/* Transition effects for smoothness */
+img, button {
+    transition: all 0.3s ease;
 }
